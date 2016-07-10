@@ -29,8 +29,10 @@ import { AppState } from './app.service';
           <a md-button router-active [routerLink]=" ['./about'] ">
             About
           </a>
+          <a md-button router-active [routerLink]=" ['./book'] ">
+            Book
+          </a>
       </md-toolbar>
-
       <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
 
       <router-outlet></router-outlet>
@@ -38,7 +40,7 @@ import { AppState } from './app.service';
       <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
 
       <footer>
-        <img [src]="angularclassLogo" width="6%">
+        <img [src]="angularclassLogo" width="4%">
         <span id="footerText">WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
       </footer>
       </md-content>
