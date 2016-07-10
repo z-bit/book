@@ -22,7 +22,7 @@ Thumbs.db
 /bower_components
 npm-debug.log
 
-/doc/xcode/
+/xcode/
 
 /src/typings/tsd/
 /typings/
