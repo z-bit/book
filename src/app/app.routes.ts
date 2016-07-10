@@ -4,8 +4,10 @@ import { Home } from './home';
 import { Book } from './book';
 import { NoContent } from './no-content';
 import { BookRoutes } from './book/book.routes';
+import { FirstAppRoutes } from './book/first_app/first_app.routes';
 
 export const routes: RouterConfig = [
+
     ...BookRoutes,
     { path: '',      component: Home },
     { path: 'home',  component: Home },
