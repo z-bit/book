@@ -19,8 +19,8 @@ import {
               <a md-button router-active [routerLink]=" ['./first_app'] ">
                 First_App
               </a>
-              <a md-button router-active [routerLink]=" ['./_two'] ">
-                Two
+              <a md-button router-active [routerLink]=" ['./inventory'] ">
+                Inventory
               </a>
               <a md-button router-active [routerLink]=" ['./_three'] ">
                 Three
