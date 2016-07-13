@@ -14,7 +14,7 @@ import { Component } from '@angular/core';
     </div>`
 })
 export class HelloWorld {
-    names: string;
+    names: string[];
 
     constructor() {
         this.names = ['Ari', 'Carlos', 'Felipe', 'Nate'];

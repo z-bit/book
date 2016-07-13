@@ -27,7 +27,8 @@ import { ProductPrice } from './productPrice';
                 background-color: lightgreen;
             }
         </style>
-        <md-card class="{{selected ? 'selected': ''}}">
+            <md-card class="{{selected ? 'selected': ''}}">
+<!--        <md-card [ng-class]="{selected: selected}">             this does not work !!!           -->
             <product-image [product]="product"></product-image>
             <div class="content">
                 <div class="header">{{ product.name }}</div>

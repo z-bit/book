@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'product-image',
     host: {'class': 'ui small image'},
-    inputs: ['product']
+    inputs: ['product'],
     template: `<div>
         <style>
             .product-image {

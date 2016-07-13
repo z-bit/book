@@ -22,8 +22,11 @@ import {
               <a md-button router-active [routerLink]=" ['./inventory'] ">
                 Inventory
               </a>
-              <a md-button router-active [routerLink]=" ['./_three'] ">
-                Three
+              <a md-button router-active [routerLink]=" ['./forms'] ">
+                Forms
+              </a>
+              <a md-button router-active [routerLink]=" ['./ngrx'] ">
+                ngrx
               </a>
               <a md-button router-active [routerLink]=" ['/'] ">
                 BACK
