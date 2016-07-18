@@ -9,3 +9,5 @@
 * **[setup](doc/setup.md)**
 
 * **[nested routing] (doc/nestedRouting.md)**
+
+* **[@ngrx/store](doc/stores.md)**

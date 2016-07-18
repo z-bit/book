@@ -25,11 +25,15 @@ import { routes, asyncRoutes, prefetchRouteCallbacks } from '../app/app.routes';
 * Application Providers/Directives/Pipes
 * providers/directives/pipes that only live in our browser environment
 */
+
+import { provideStore } from '@ngrx/store';
+import { stores } from '../app/stores/stores';
+
 export const APPLICATION_PROVIDERS = [
   // new Angular 2 forms
   disableDeprecatedForms(),
   provideForms(),
-
+  provideStore(stores),
   provideRouter(routes),
   provideWebpack(asyncRoutes),
   providePrefetchIdleCallbacks(prefetchRouteCallbacks),
