@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.all.min.js"></script>
+        <title>rxjs</title>
+    </head>
+    <body>
+        <div style="text-align: center;" >
+            <a href="06_iterator_pattern.html">&lt; Previous</a>
+            &nbsp; &nbsp;
+            <span style="font-size: 250%;"><b>Rx Pattern - Observables</b></span>
+            &nbsp; &nbsp;
+            <a href="../ch02/10_earthquake.html">Next &gt;</a>
+            <h4>Watch the console!</h4>
+        </div>
+        <h4>Definition of Iterator</h4>
+        <pre><code>
+            var observable = Rx.Observable.create(function (observer) {
+                var req = new XMLHttpRequest();
+                var url = 'https://api.github.com/users?page=1&per_page=5';
+
+                req.open('GET', url);
+                req.onload = function () {
+                    if (req.status == 200) {
+                        var res = JSON.parse(req.response);
+                        var x =0;
+                        while (x < 5) {
+                            observer.onNext(res[x].login);
+                            x++;
+                        }
+                        observer.onCompleted();
+                    } else {
+                        observer.onError(new Error(req.statusText));
+                    }
+                    observer.onError(new Error("Unknown Error"));
+                };
+                req.send();
+            });
+
+            var observer = Rx.Observer.create(
+                function onNext(x)      {console.log('onNext: ', x)},
+                function onError(e)     {console.log('onError: ', e)},
+                function onCompleted()  {console.log('onCompleted: ', 'completed')}
+            );
+
+            observable.subscribe(observer);
+        </code></pre>
+        <h4>or shorter</h4>
+        <pre><code>
+            Rx.DOM.get(url)
+        </code></pre>
+        <script src="./07_Rx_pattern.js"></script>
+    </body>
+</html>

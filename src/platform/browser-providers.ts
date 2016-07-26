@@ -27,7 +27,9 @@ import { routes, asyncRoutes, prefetchRouteCallbacks } from '../app/app.routes';
 */
 
 import { provideStore } from '@ngrx/store';
-import { stores } from '../app/stores/stores';
+import { stores } from '../app/app.stores';
+
+//import { services} from '../app/app.services';
 
 export const APPLICATION_PROVIDERS = [
   // new Angular 2 forms

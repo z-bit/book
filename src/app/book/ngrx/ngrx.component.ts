@@ -14,10 +14,16 @@ import {
     directives: [ROUTER_DIRECTIVES],
     template: `<div>
           <md-toolbar color="warn">
-              <span>B O O K  -  ngrx</span>
+              <span>B O O K  -  ngrx / rxjs</span>
               <span class="fill"></span>
               <a md-button router-active [routerLink]=" ['./party'] ">
-                party
+                party(ngrx)
+              </a>
+              <a md-button router-active [routerLink]=" ['./basic'] ">
+                basic rxjs
+              </a>
+              <a md-button router-active [routerLink]=" ['./rxjs'] ">
+                rxjs
               </a>
               <a md-button router-active [routerLink]=" ['./chat'] ">
                 chat

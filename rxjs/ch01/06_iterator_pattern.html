@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.all.min.js"></script>
+        <title>rxjs</title>
+    </head>
+    <body>
+        <div style="text-align: center;" >
+            <a href="05_observer_pattern.html">&lt; Previous</a>
+            &nbsp; &nbsp;
+            <span style="font-size: 250%;"><b>Iterator Pattern</b></span>
+            &nbsp; &nbsp;
+            <a href="07_Rx_pattern.html">Next &gt;</a>
+            <h4>Watch the console!</h4>
+        </div>
+        <h4>Definition of Iterator</h4>
+        <pre><code>
+            function iterateOnMultiples(arr, divisor) {
+                this.cursor = 0;
+                this.array = arr;
+                this.divisor = divisor || 1;
+            }
+
+            iterateOnMultiples.prototype.next = function () {
+                while (this.cursor < this.array.length) {
+                    var value = this.array[this.cursor++];
+                    if (value % this.divisor === 0) {
+                        return value;
+                    }
+                }
+            };
+
+            iterateOnMultiples.prototype.hasNext = function () {
+                var cur = this.cursor;
+                while (cur < this.array.length) {
+                    if (this.array[cur++] % this.divisor === 0) {
+                        return true;
+                    }
+                }
+                return false;
+            };
+        </code></pre>
+        <h4>Play Time</h4>
+        <pre><code>
+            var consumer = new iterateOnMultiples([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
+
+            console.log(consumer.next(), consumer.hasNext());
+            console.log(consumer.next(), consumer.hasNext());
+            console.log(consumer.next(), consumer.hasNext());
+        </code></pre>
+        <script src="./06_iterator_pattern.js"></script>
+    </body>
+</html>

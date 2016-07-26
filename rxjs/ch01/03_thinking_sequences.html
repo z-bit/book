@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.all.min.js"></script>
+        <title>rxjs</title>
+    </head>
+    <body>
+        <div style="text-align: center;" >
+            <a href="02_thinking_sequences.html">&lt; Previous</a>
+            &nbsp; &nbsp;
+            <span style="font-size: 250%;"><b>Thinking Sequences 03</b></span>
+            &nbsp; &nbsp;
+            <a href="04_thinking_sequences.html">Next &gt;</a>
+            <h4>Watch the console: 3 clicks in the right half of the windows will be listed.</h4>
+        </div>
+
+        <h4>Simplest Stream Ever</h4>
+        <pre><code>
+            var stream = Rx.Observable.create(
+                function (observer) {
+                    observer.onNext(42);
+                    observer.onCompleted();
+                    return function () {
+                        console.log('disposed');
+                    }
+                }
+            );
+            var subscription = stream.subscribe(
+                function (x) { console.log('onNext: %s', x)},
+                function (e) { console.log('onError: %s', e)},
+                function ()  { console.log('onCompleted')}
+            );
+            subscription.dispose();
+        </code></pre>
+
+        <h4>Apply Stream to Clicks</h4>
+        <pre><code>
+            var stream = Rx.Observable
+                .fromEvent(window, 'click')
+                .filter(function (c) {
+                    return c.clientX > window.innerWidth / 2;
+                })
+                .take(3)
+            ;
+            var subscription = stream.subscribe(
+                function (c) { console.log('onNext: ', c.clientX)},
+                function (e) { console.log('onError: %s', e)},
+                function ()  { console.log('onCompleted')}
+            );
+        </code></pre>
+
+        <script src="./03_thinking_sequences.js"></script>
+    </body>
+</html>

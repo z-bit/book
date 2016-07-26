@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.all.min.js"></script>
+        <title>rxjs</title>
+    </head>
+    <body>
+        <div style="text-align: center;" >
+            <a href="01_thinking_sequences.html">&lt; Previous</a>
+            &nbsp; &nbsp;
+            <span style="font-size: 250%;"><b>Thinking Sequences 02</b></span>
+            &nbsp; &nbsp;
+            <a href="03_thinking_sequences.html">Next &gt;</a>
+            <h4>Watch the console: 3 clicks in the right half of the windows will be listed.</h4>
+        </div>
+
+        <h4>Traditional Way with Event Emitter</h4>
+        <code><pre>
+            var clicks = 0;
+
+            function registerClicks(e) {
+                if (clicks < 3) {
+                    if (e.clientX > window.innerWidth / 2) {
+                        clicks += 1;
+                        console.log('No. clicks: ', clicks, '  coordinates: ', e.clientX, e.clientY);
+
+                    } else {
+                        console.log('This one hit the left half of the window and does not count.');
+                    }
+                }
+                if (clicks === 3) {
+                    clicks += 1;
+                    console.log('EventListener for "click" removed. clicks: ', clicks);
+                    console.log('Good Bye!');
+                    document.body.removeEventListener('click', registerClicks);
+                    return false;
+                }
+                if (clicks > 3) {
+                    console.log('This should not be here - EventListen was removed, was it?');
+                }
+            }
+
+            document.body.addEventListener('click', registerClicks);
+        </pre></code>
+        <script src="./02_thinking_sequences.js"></script>
+    </body>
+</html>

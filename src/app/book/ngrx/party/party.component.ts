@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx'
 import { Store } from '@ngrx/store';
-import { people } from 'app/stores/reducers/people';
-import { filter } from 'app/stores/reducers/filter'
+import { people } from './people.reducer';
+import { filter } from './filter.reducer'
 
 import { PersonList } from './person_list';
 import { PersonInput } from './person_input';
 import { FilterSelect } from './filter_select';
-import { Counter2 } from './counter2';
+import { Counter } from './counter';
 
 interface People {
     id: number,
@@ -19,13 +19,13 @@ interface People {
 
 @Component({
     selector: 'party',
-    directives: [Counter2, FilterSelect, PersonInput, PersonList],
+    directives: [Counter, FilterSelect, PersonInput, PersonList],
     template: `<div>
         <div class="card-container">
             <md-card>
                 <md-card-title>Party Planner</md-card-title>
                 <md-card-content>
-                    <counter2></counter2>
+                    <counter></counter>
                     <br>
                     <filter-select
                         (updateFilter)="updateFilter($event)"

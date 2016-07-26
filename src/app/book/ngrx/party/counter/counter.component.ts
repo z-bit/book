@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {Store} from '@ngrx/store';
-import {INCREMENT, DECREMENT, RESET} from 'app/stores/reducers/counterReducer';
+import {INCREMENT, DECREMENT, RESET} from './counter.reducer';
 interface State {
     counter: number
 }

@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.all.min.js"></script>
+        <title>Earthquake Map</title>
+        <link rel="stylesheet" href="10_earthquake.css">
+    </head>
+    <body>
+        <div style="text-align: center;" >
+            <a href="../ch01/07_Rx_pattern.html">&lt; Previous</a>
+            &nbsp; &nbsp;
+            <span style="font-size: 250%;"><b>RxJS Eartquake Map 10</b></span>
+            &nbsp; &nbsp;
+            <a href="11_earthquake.html">Next &gt;</a>
+            <h4>... the basic way ...</h4>
+        </div>
+
+        <div id="map"></div>
+        <script>
+            var QUAKE_URL = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojsonp';
+
+            function loadJSONP(url) {
+                var script = document.createElement('script');
+                script.src = url;
+
+                var head = document.getElementsByTagName('head')[0];
+                head.appendChild(script);
+            }
+
+            var map = L.map('map').setView([33.858631, -118.279602], 7);
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+        </script>
+        <script src="./10_earthquake.js"></script>
+    </body>
+</html>

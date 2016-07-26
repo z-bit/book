@@ -1,7 +1,10 @@
 import { RouterConfig } from '@angular/router';
 import { Ngrx } from './ngrx.component';
 import { Chat } from './chat';
+import { Rxjs } from './rxjs';
 import { Party } from './party';
+import { Basic } from './basic/basic.component';
+
 
 export const NgrxRoutes: RouterConfig = [
     {
@@ -9,7 +12,9 @@ export const NgrxRoutes: RouterConfig = [
         component: Ngrx,
         children: [
             { path: 'chat',      component: Chat },
-            { path: 'party',     component: Party }
+            { path: 'rxjs',      component: Rxjs },
+            { path: 'party',     component: Party },
+            { path: 'basic',     component: Basic }
         ]
     }
 ];

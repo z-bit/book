@@ -8,6 +8,8 @@
 ####work through
 * **[setup](doc/setup.md)**
 
+* **[install additional node modules](doc/installNodeModules.md)**
+
 * **[nested routing] (doc/nestedRouting.md)**
 
 * **[@ngrx/store](doc/stores.md)**

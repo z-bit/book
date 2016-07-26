@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.all.min.js"></script>
+        <title>rxjs</title>
+    </head>
+    <body>
+    <div style="text-align: center;" >
+        <a href="03_thinking_sequences.html">&lt; Previous</a>
+        &nbsp; &nbsp;
+        <span style="font-size: 250%;"><b>Thinking Sequences 04</b></span>
+        &nbsp; &nbsp;
+        <a href="05_observer_pattern.html">Next &gt;</a>
+        <h4>Watch the console: 3 clicks in the right half of the windows will be listed.</h4>
+    </div>
+        <h4>The Short Way - all piped up</h4>
+        <pre><code>
+            Rx.Observable
+                .fromEvent(document, 'click')
+                .filter(function (c) { return c.clientX > window.innerWidth / 2; })
+                .take(3)
+                .subscribe( function (c) { console.log('onNext: ', c.clientX, ',', c.clientY) } )
+            ;
+        </code></pre>
+        <script src="./04_thinking_sequences.js"></script>
+    </body>
+</html>
